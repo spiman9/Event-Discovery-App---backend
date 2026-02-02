@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Slf4j
+@Slf4j // for the logging purpose of lombok
 public class LoggingAspect {
 
     @Around("execution(* com.example.EventDiscoveryApp.service.*.*(..))") // for all the method sin the service class

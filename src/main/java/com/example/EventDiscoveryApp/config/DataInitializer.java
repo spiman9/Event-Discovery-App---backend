@@ -26,8 +26,10 @@ public class DataInitializer {
     public CommandLineRunner loadInitialUsers() {
         return args -> {
 
+            //load the users only once if the users are not present
+
             // ✅ Run only once
-            if (userRepository.count() > 0) {
+            if (userRepository.count() > 0) { // check if the users are already present
                 return;
             }
 
@@ -37,23 +39,23 @@ public class DataInitializer {
             users.add(new User(
                     null,
                     "admin1",
-                    passwordEncoder.encode("admin123"),
+                    passwordEncoder.encode("admin123"), // here we are encoding the passworda and stroring it in the database
                     "ROLE_ADMIN"
             ));
 
             users.add(new User(
                     null,
                     "admin2",
-                    passwordEncoder.encode("admin123"),
+                    passwordEncoder.encode("admin123"), // here we are encoding the passworda and stroring it in the database
                     "ROLE_ADMIN"
             ));
 
-            // ✅ USERS
+            // ✅ USERS - add 8 users
             for (int i = 1; i <= 8; i++) {
                 users.add(new User(
                         null,
                         "user" + i,
-                        passwordEncoder.encode("user123"),
+                        passwordEncoder.encode("user123"), // here we are encoding the passworda and stroring it in the database
                         "ROLE_USER"
                 ));
             }

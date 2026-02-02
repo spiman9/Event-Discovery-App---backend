@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
 
-    List<Event> findByCategoryIgnoreCase(String category);
+    List<Event> findByCategoryIgnoreCase(String category); // just define that what we want to search
 
-    List<Event> findByEventDateBetween(LocalDateTime start, LocalDateTime end);
-}
+    List<Event> findByEventDateBetween(LocalDateTime start, LocalDateTime end); //search based on date range
+} 

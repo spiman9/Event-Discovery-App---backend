@@ -5,11 +5,9 @@ import com.example.EventDiscoveryApp.dto.EventDeleteResponse;
 import com.example.EventDiscoveryApp.dto.RSVPDTO;
 import com.example.EventDiscoveryApp.dto.RSVPresponse;
 import com.example.EventDiscoveryApp.entity.Event;
-import com.example.EventDiscoveryApp.entity.RSVP;
 import com.example.EventDiscoveryApp.entity.User;
 import com.example.EventDiscoveryApp.repository.UserRepository;
 import com.example.EventDiscoveryApp.service.EventService;
-import jakarta.persistence.Id;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+//file consists of all the endpoints related to event
 @RestController
 @RequestMapping("/api/events")
 @RequiredArgsConstructor

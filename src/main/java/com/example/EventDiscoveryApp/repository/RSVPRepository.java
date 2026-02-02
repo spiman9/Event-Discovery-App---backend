@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface RSVPRepository extends JpaRepository<RSVP, Long> {
     @Transactional
-    void deleteByEventId(long id);
+    void deleteByEventId(long id); // delete all rsvp entries related to a particular event
 }

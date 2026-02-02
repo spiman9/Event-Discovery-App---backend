@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//whenever the user tries to login this service will be called to load the user from the database
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
@@ -23,10 +24,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found: " + username)
+                        new UsernameNotFoundException("User not found: " + username) // throw exception if user not found
                 );
         System.out.println("User login");
-        return new org.springframework.security.core.userdetails.User(
+        return new org.springframework.security.core.userdetails.User( // basic auth - username and password
                 user.getUsername(),
                 user.getPassword(),
                 List.of(new SimpleGrantedAuthority(user.getRole()))
