@@ -1,0 +1,265 @@
+{
+  "info": {
+    "_postman_id": "e0bfef05-a533-4f5b-a529-a137e60a0195",
+    "name": "Event Discovery App",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42551654"
+  },
+  "item": [
+    {
+      "name": "Get - all the events",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "admin123",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin1",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post - Create a  Event",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "user123",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "user1",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"title\": \"Table Tennis\",\r\n        \"description\": \"Live play by famous table tennis player\",\r\n        \"category\": \"Sports\",\r\n        \"eventDate\": \"2026-06-15T18:00:00\",\r\n        \"location\": \"CV Raman Hall\",\r\n        \"totalTickets\": 1000\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/events",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post - Book Tickets",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "user123",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "user1",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"eventId\" : 6,\r\n    \"ticketsBooked\" : 45\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/events/rsvp",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "rsvp"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get - Filter based on category",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "user123",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "user1",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"title\": \"Table Tennis\",\r\n        \"description\": \"Live play by famous table tennis player\",\r\n        \"category\": \"Sports\",\r\n        \"eventDate\": \"2026-06-15T18:00:00\",\r\n        \"location\": \"CV Raman Hall\",\r\n        \"totalTickets\": 1000\r\n    }"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/events/search?category=Music",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "Music"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get - filter events bassed on the start and end date",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin1",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "admin123",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events/filterDate?start=2026-03-15T18:00:00&end=2026-04-15T18:00:00",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "filterDate"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-03-15T18:00:00"
+            },
+            {
+              "key": "end",
+              "value": "2026-04-15T18:00:00"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete - Delete event based on id",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin1",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "admin123",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events/5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
